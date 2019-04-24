@@ -21,14 +21,14 @@ public class LogInController  extends HttpServlet
 		String password=req.getParameter("password");
 		System.out.println(userName);
 		System.out.println(password);
-	// User user=new User(null, null, userName, null, password, null);
+		// User user=new User(null, null, userName, null, password, null);
 		IUserDao userDao = UserDaoImple.getinstance();
 		//userDao.loginCustomer("sdfd", "123");
-//		System.out.println("Valid");
-	//user.setUserName(userName);	
-	//user.setPassword(password);
+		//System.out.println("Valid");
+		//user.setUserName(userName);	
+		//user.setPassword(password);
 		boolean flag=userDao.loginCustomer(userName, password);
-	//	boolean flag= ((UserDaoImple) userDao).getLoginDetails(user );
+		//	boolean flag= ((UserDaoImple) userDao).getLoginDetails(user );
 		if(flag)
 		{
 			System.out.println("valid");
@@ -36,7 +36,7 @@ public class LogInController  extends HttpServlet
 			req.getRequestDispatcher("user.jsp").include(req, resp);
 		}else {
 			System.out.println("invalid");
-			req.getRequestDispatcher("user.jsp").include(req, resp);
+			req.getRequestDispatcher("Login.jsp").include(req, resp);
 		}
 	}
 
